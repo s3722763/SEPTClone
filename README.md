@@ -3,7 +3,7 @@
 # Group 00
 
 ## Members
-* SURNAME, GivenName (sXXXX)
+* Tchung, Alejandro (s3722126)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
