@@ -4,7 +4,7 @@
 
 ## Members
 * Tchung, Alejandro (s3722126)
-* SURNAME, GivenName (sXXXX)
+* Marcelin, Angelique (s3602636)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
