@@ -5,7 +5,7 @@
 ## Members
 * Tchung, Alejandro (s3722126)
 * Marcelin, Angelique (s3602636)
-* SURNAME, GivenName (sXXXX)
+* Oommen, Sandra (s3794692)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 
