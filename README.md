@@ -6,7 +6,7 @@
 * Tchung, Alejandro (s3722126)
 * Marcelin, Angelique (s3602636)
 * Oommen, Sandra (s3794692)
-* SURNAME, GivenName (sXXXX)
+* Chanzi, Issa (s3783615)
 * SURNAME, GivenName (sXXXX)
 
 ## Records
