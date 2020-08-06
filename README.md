@@ -7,13 +7,13 @@
 * Marcelin, Angelique (s3602636)
 * Oommen, Sandra (s3794692)
 * Chanzi, Issa (s3783615)
-* SURNAME, GivenName (sXXXX)
+* Miskimmin, Daniel (s3722763)
 
 ## Records
 
 * Github repository : https://github.com/RMIT-SEPT/majorproject-fri-10-30-2
 
-* ClickUp Workspace : https://app.clickup.com/xxxx/yyyy
+* Notion Workspace : https://www.notion.so/79a696748b4646dc8b1150084fd589c1
 
 
 ## Code documentation
