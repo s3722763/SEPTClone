@@ -13,7 +13,7 @@
 
 * Github repository : https://github.com/RMIT-SEPT/majorproject-fri-10-30-2
 
-* Notion Workspace : https://www.notion.so/79a696748b4646dc8b1150084fd589c1
+* Notion Workspace : https://www.notion.so/114a61fc54a6437ebadc932da842b886?v=6cec8e72ff5945d392e7da95d963588a
 
 
 ## Code documentation
