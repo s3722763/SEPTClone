@@ -15,4 +15,8 @@ public class BookingService {
     public List<Booking> findAll() {
         return bookingRepository.findAll();
     }
+
+    public void add(Booking booking) {
+        bookingRepository.save(booking);
+    }
 }
