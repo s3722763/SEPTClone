@@ -16,7 +16,9 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
-    public void add(Booking booking) {
+    public boolean add(Booking booking) {
         bookingRepository.save(booking);
+
+        return true;
     }
 }

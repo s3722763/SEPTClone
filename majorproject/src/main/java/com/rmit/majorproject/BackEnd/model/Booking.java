@@ -1,11 +1,7 @@
 package com.rmit.majorproject.BackEnd.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-import javax.persistence.GeneratedValue;
 import java.time.LocalDateTime;
 
 @Entity
