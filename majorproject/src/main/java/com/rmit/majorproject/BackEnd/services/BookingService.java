@@ -14,7 +14,7 @@ public class BookingService {
     @Autowired
     private BookingRepository bookingRepository;
 
-    public List<Booking> findAll() {
+    public Iterable<Booking> findAll() {
         return bookingRepository.findAll();
     }
 

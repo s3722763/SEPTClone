@@ -1,6 +1,9 @@
 package com.rmit.majorproject.BackEnd.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 
@@ -8,11 +11,15 @@ import java.time.LocalDateTime;
 @Table(name = "bookings")
 public class Booking {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
+    @NotBlank(message = "Workers name cannot be empty")
     private String workerName;
+    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM")
     private LocalDateTime bookingDate;
+    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM-ss")
     private LocalDateTime bookingCreationDate;
 
     public Booking() {};
