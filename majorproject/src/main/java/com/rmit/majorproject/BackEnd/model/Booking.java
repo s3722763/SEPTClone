@@ -27,12 +27,6 @@ public class Booking {
 
     public Booking() { };
 
-    public Booking(String workerName, String bookersName, LocalDateTime bookingDate) {
-        this.bookingDate = bookingDate;
-        this.bookersName = bookersName;
-        this.workerName = workerName;
-    }
-
     public long getId() {
         return this.id;
     }
