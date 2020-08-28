@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +25,14 @@ public class BookingController {
 
     @PostMapping("")
     public ResponseEntity<Booking> createNewBooking(@RequestBody Booking booking) {
+        booking.setBookingCreationDate(Date.from(Instant.now()));
         bookingService.add(booking);
 
         return new ResponseEntity<Booking>(booking, HttpStatus.CREATED);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<Iterable<Booking>> getBookings() {
+        return new ResponseEntity<>(bookingService.findAll(), HttpStatus.OK);
     }
 }

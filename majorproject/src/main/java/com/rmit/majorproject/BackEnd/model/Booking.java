@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -22,10 +23,9 @@ public class Booking {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @NotNull(message = "Booking must have a book date")
     private LocalDateTime bookingDate;
-    @CreatedDate
     private Date bookingCreationDate;
 
-    public Booking() {};
+    public Booking() { };
 
     public Booking(String workerName, String bookersName, LocalDateTime bookingDate) {
         this.bookingDate = bookingDate;
