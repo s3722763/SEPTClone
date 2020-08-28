@@ -29,11 +29,11 @@ public class BookingServiceTest {
 
     @Test
     public void testAddBooking() throws InvalidBookingException {
-        Booking b = new Booking(LocalDateTime.now().plusHours(12));
+        Booking b = new Booking("A worker", "A client", LocalDateTime.now(), LocalDateTime.now().plusHours(12));
         Assert.assertTrue(bookingService.add(b));
 
         Assert.assertThrows(InvalidBookingException.class, () -> {
-            Booking booking = new Booking(LocalDateTime.now().minusDays(1));
+            Booking booking = new Booking("A worker", "A client", LocalDateTime.now(), LocalDateTime.now().minusDays(1));
             bookingService.add(booking);
         });
     }
