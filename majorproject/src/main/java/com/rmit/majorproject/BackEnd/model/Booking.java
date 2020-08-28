@@ -1,14 +1,17 @@
 package com.rmit.majorproject.BackEnd.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
-@Table(name = "bookings")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,16 +19,16 @@ public class Booking {
     @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
     private String workerName;
-    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @NotNull(message = "Booking must have a book date")
     private LocalDateTime bookingDate;
-    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM-ss")
-    private LocalDateTime bookingCreationDate;
+    @CreatedDate
+    private Date bookingCreationDate;
 
     public Booking() {};
 
-    public Booking(String workerName, String bookersName, LocalDateTime bookingCreationDate, LocalDateTime bookingDate) {
+    public Booking(String workerName, String bookersName, LocalDateTime bookingDate) {
         this.bookingDate = bookingDate;
-        this.bookingCreationDate = bookingCreationDate;
         this.bookersName = bookersName;
         this.workerName = workerName;
     }
@@ -47,12 +50,12 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
-    public LocalDateTime getBookingCreationDate () {
+    public Date getBookingCreationDate () {
         return this.bookingCreationDate;
     }
 
     @Column(name = "booking_creation_date", nullable = false)
-    public void setBookingCreationDate(LocalDateTime bookingCreationDate) {
+    public void setBookingCreationDate(Date bookingCreationDate) {
         this.bookingCreationDate = bookingCreationDate;
     }
 
