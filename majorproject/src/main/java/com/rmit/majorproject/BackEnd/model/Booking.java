@@ -15,7 +15,6 @@ public class Booking {
     private long id;
     @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
-    @NotBlank(message = "Workers name cannot be empty")
     private String workerName;
     @JsonFormat(pattern = "yyyy-mm-dd-HH-MM")
     private LocalDateTime bookingDate;
