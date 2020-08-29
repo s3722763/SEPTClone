@@ -20,9 +20,10 @@ public class Booking {
     @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
     private String workerName;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @NotNull(message = "Booking must have a book date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime bookingDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date bookingCreationDate;
     @NotBlank
     private String service;
