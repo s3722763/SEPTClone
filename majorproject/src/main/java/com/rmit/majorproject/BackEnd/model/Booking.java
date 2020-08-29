@@ -24,6 +24,8 @@ public class Booking {
     @NotNull(message = "Booking must have a book date")
     private LocalDateTime bookingDate;
     private Date bookingCreationDate;
+    @NotBlank
+    private String service;
 
     public Booking() { };
 
@@ -69,5 +71,14 @@ public class Booking {
     @Column(name = "worker_name", nullable = false)
     public void setWorkerName(String workerName) {
         this.workerName = workerName;
+    }
+
+    public String getService() {
+        return this.service;
+    }
+
+    @Column(name = "service", nullable = false)
+    public void setService(String service) {
+        this.service = service;
     }
 }
