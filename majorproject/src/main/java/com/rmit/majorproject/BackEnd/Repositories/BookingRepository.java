@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 public interface BookingRepository extends CrudRepository<Booking, Long> {
     @Override
     Iterable<Booking> findAllById(Iterable<Long> iterable);
@@ -13,4 +15,6 @@ public interface BookingRepository extends CrudRepository<Booking, Long> {
     Iterable<Booking> findAll();
 
     Iterable<Booking> findByBookersName(String bookersName);
+
+    Optional<Booking> findById(long id);
 }

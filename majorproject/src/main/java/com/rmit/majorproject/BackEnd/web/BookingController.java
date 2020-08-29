@@ -47,6 +47,17 @@ public class BookingController {
     @GetMapping("/name/{bookersName}")
     public ResponseEntity<?> getBookingsFromName(@PathVariable String bookersName) {
         Iterable<Booking> bookings = bookingService.findByBookersName(bookersName);
-        return  new ResponseEntity<>(bookings, HttpStatus.OK);
+        return new ResponseEntity<>(bookings, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteBooking(@PathVariable long id) {
+        boolean successfulDelete = bookingService.deleteBooking(id);
+
+        if (successfulDelete) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

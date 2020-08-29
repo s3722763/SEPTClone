@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -28,5 +29,15 @@ public class BookingService {
 
     public Iterable<Booking> findByBookersName(String bookersName) {
         return bookingRepository.findByBookersName(bookersName);
+    }
+
+    public boolean deleteBooking(long id) {
+        Optional<Booking> bookingOptional = this.bookingRepository.findById(id);
+
+        if (bookingOptional.isPresent()) {
+            bookingRepository.delete(bookingOptional.get());
+        }
+
+        return bookingOptional.isPresent();
     }
 }
