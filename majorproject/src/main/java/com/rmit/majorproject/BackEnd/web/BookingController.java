@@ -43,4 +43,10 @@ public class BookingController {
     public ResponseEntity<Iterable<Booking>> getBookings() {
         return new ResponseEntity<>(bookingService.findAll(), HttpStatus.OK);
     }
+
+    @GetMapping("/name/{bookersName}")
+    public ResponseEntity<?> getBookingsFromName(@PathVariable String bookersName) {
+        Iterable<Booking> bookings = bookingService.findByBookersName(bookersName);
+        return  new ResponseEntity<>(bookings, HttpStatus.OK);
+    }
 }

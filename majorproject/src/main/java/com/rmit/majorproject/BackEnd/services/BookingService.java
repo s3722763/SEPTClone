@@ -25,4 +25,8 @@ public class BookingService {
 
         bookingRepository.save(booking);
     }
+
+    public Iterable<Booking> findByBookersName(String bookersName) {
+        return bookingRepository.findByBookersName(bookersName);
+    }
 }
