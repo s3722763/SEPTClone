@@ -1,14 +1,18 @@
 package com.rmit.majorproject.BackEnd.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
-@Table(name = "bookings")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,19 +20,15 @@ public class Booking {
     @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
     private String workerName;
-    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM")
+    @NotNull(message = "Booking must have a book date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime bookingDate;
-    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM-ss")
-    private LocalDateTime bookingCreationDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date bookingCreationDate;
+    @NotBlank
+    private String service;
 
-    public Booking() {};
-
-    public Booking(String workerName, String bookersName, LocalDateTime bookingCreationDate, LocalDateTime bookingDate) {
-        this.bookingDate = bookingDate;
-        this.bookingCreationDate = bookingCreationDate;
-        this.bookersName = bookersName;
-        this.workerName = workerName;
-    }
+    public Booking() { };
 
     public long getId() {
         return this.id;
@@ -47,12 +47,12 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
-    public LocalDateTime getBookingCreationDate () {
+    public Date getBookingCreationDate () {
         return this.bookingCreationDate;
     }
 
     @Column(name = "booking_creation_date", nullable = false)
-    public void setBookingCreationDate(LocalDateTime bookingCreationDate) {
+    public void setBookingCreationDate(Date bookingCreationDate) {
         this.bookingCreationDate = bookingCreationDate;
     }
 
@@ -72,5 +72,14 @@ public class Booking {
     @Column(name = "worker_name", nullable = false)
     public void setWorkerName(String workerName) {
         this.workerName = workerName;
+    }
+
+    public String getService() {
+        return this.service;
+    }
+
+    @Column(name = "service", nullable = false)
+    public void setService(String service) {
+        this.service = service;
     }
 }

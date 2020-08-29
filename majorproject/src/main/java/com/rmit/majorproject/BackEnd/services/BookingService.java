@@ -18,13 +18,15 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
-    public boolean add(Booking booking) throws InvalidBookingException {
-        if (booking.getBookingDate().isBefore(LocalDateTime.now())) {
+    public void add(Booking booking) /*throws InvalidBookingException*/ {
+        /*if (booking.getBookingDate().isBefore(LocalDateTime.now())) {
             throw new InvalidBookingException("Invalid Booking Date");
-        }
+        }*/
 
         bookingRepository.save(booking);
+    }
 
-        return true;
+    public Iterable<Booking> findByBookersName(String bookersName) {
+        return bookingRepository.findByBookersName(bookersName);
     }
 }
