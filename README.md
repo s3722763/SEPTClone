@@ -1,12 +1,10 @@
 # RMIT SEPT 2020 Major Project
 
-# Group 00
+# Group fri-10-30-2
 
 ## Members
-* Tchung, Alejandro (s3722126)
 * Marcelin, Angelique (s3602636)
 * Oommen, Sandra (s3794692)
-* Chanzi, Issa (s3783615)
 * Miskimmin, Daniel (s3722763)
 
 ## Records
