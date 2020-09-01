@@ -27,10 +27,6 @@ public class BookingService {
         bookingRepository.save(booking);
     }
 
-    public Iterable<Booking> findByBookersName(String bookersName) {
-        return bookingRepository.findByBookersName(bookersName);
-    }
-
     public boolean deleteBooking(long id) {
         Optional<Booking> bookingOptional = this.bookingRepository.findById(id);
 

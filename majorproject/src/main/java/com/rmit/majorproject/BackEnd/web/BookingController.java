@@ -44,12 +44,6 @@ public class BookingController {
         return new ResponseEntity<>(bookingService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/name/{bookersName}")
-    public ResponseEntity<?> getBookingsFromName(@PathVariable String bookersName) {
-        Iterable<Booking> bookings = bookingService.findByBookersName(bookersName);
-        return new ResponseEntity<>(bookings, HttpStatus.OK);
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteBooking(@PathVariable long id) {
         boolean successfulDelete = bookingService.deleteBooking(id);
