@@ -19,9 +19,10 @@ public class Booking {
     private long id;
     @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
-    private String workerName;
-    @NotNull(message = "Booking must have a book date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "assigned_employee", referencedColumnName = "id")
+    private Employee assignedEmployee;
+    @JsonFormat(pattern = "yyyy-mm-dd-HH-MM")
     private LocalDateTime bookingDate;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date bookingCreationDate;
@@ -65,13 +66,13 @@ public class Booking {
         this.bookersName = name;
     }
 
-    public String getWorkerName() {
-        return this.workerName;
+    public Employee getAssignedEmployeeName() {
+        return this.assignedEmployee;
     }
 
     @Column(name = "worker_name", nullable = false)
-    public void setWorkerName(String workerName) {
-        this.workerName = workerName;
+    public void setAssignedEmployeeName(Employee assignedEmployee) {
+        this.assignedEmployee = assignedEmployee;
     }
 
     public String getService() {
