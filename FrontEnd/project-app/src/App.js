@@ -6,7 +6,9 @@ import ContactUs from './pages/ContactUs';
 import Login from './pages/Login'
 import Booking from './pages/Booking'
 import AboutUs from './pages/AboutUs'
+import AddPerson from './pages/AddPerson';
 import {Route, Switch} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route exact path = "/login" component={Login}/>
         <Route exact path = "/booking" component={Booking}/>
         <Route exact path = "/about-us" component={AboutUs}/>
+        <Route exact path = "/addPerson" component={AddPerson}/>
         <Route component={Error}/>
       </Switch>
     </div>

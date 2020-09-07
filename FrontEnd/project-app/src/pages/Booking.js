@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 export default class Booking extends Component {
     render() {
         return (
-            <div>
+          <form> 
+          <div>
             <h2>New Booking Form</h2>
             <label>
            Select Category:
@@ -33,6 +34,7 @@ export default class Booking extends Component {
      </label>
      <div>
      <label>Select Date & Time: </label>
+     <input type="datetime-local" id="datetime" name="datetime"></input>
      </div>
      <label>
       Notes:
@@ -42,6 +44,7 @@ export default class Booking extends Component {
 
         <input type="submit" value="Submit" />
           </div>
+          </form> 
         )
     }
 }

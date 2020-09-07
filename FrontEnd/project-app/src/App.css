@@ -155,7 +155,7 @@ select {
 }
 
 input[type=submit] {
-  width: 10%;
+  width: 12%;
   background-color:#344dbe;
   color: white;
   padding: 14px 20px;
@@ -164,6 +164,7 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   font-size: medium;
+  display: flex;
 }
 
 textarea {
@@ -176,3 +177,18 @@ textarea {
   flex-direction: column;
   font-size: medium;
 }
+
+input[type=text], input[type=date] {
+  width: 40%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+}
+
+label{
+  padding: 12px 12px 12px 0; 
+ 
+}
+
+
