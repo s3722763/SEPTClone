@@ -2,12 +2,10 @@ package com.rmit.majorproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 @SpringBootTest
-class MajorprojectApplicationTests {
-
+public class MajorprojectApplicationTests {
     @Test
-    void contextLoads() {
-    }
-
+    public void contextLoads() { }
 }

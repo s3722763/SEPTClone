@@ -1,15 +1,23 @@
 package com.rmit.majorproject.BackEnd.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
@@ -19,9 +27,10 @@ public class Booking {
     private long id;
     @NotBlank(message = "Bookers name cannot be empty")
     private String bookersName;
-    private String workerName;
-    @NotNull(message = "Booking must have a book date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "assigned_employee", referencedColumnName = "id")
+    private Employee assignedEmployee;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime bookingDate;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date bookingCreationDate;
@@ -65,13 +74,13 @@ public class Booking {
         this.bookersName = name;
     }
 
-    public String getWorkerName() {
-        return this.workerName;
+    public Employee getAssignedEmployeeName() {
+        return this.assignedEmployee;
     }
 
     @Column(name = "worker_name", nullable = false)
-    public void setWorkerName(String workerName) {
-        this.workerName = workerName;
+    public void setAssignedEmployeeName(Employee assignedEmployee) {
+        this.assignedEmployee = assignedEmployee;
     }
 
     public String getService() {
