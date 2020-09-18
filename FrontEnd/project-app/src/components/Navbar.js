@@ -13,6 +13,9 @@ export default class Navbar extends Component {
             <nav className="main-nav">
                <ul>
                     <li>
+                    <Link to="/schedule">Add Person</Link>
+                    </li>
+                    <li>
                     <Link to="/addPerson">Add Person</Link>
                     </li>
                     <li>
