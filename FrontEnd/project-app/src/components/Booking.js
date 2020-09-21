@@ -13,8 +13,15 @@ export default class Booking extends Component {
   }; 
   this.onChange = this.onChange.bind(this);
   this.onSubmit = this.onSubmit.bind(this);
+  this.handleDropdownChange = this.handleDropdownChange.bind(this);
 
-    }
+  }
+
+
+  handleDropdownChange(e) {
+    this.setState({ service: e.target.value });
+  }
+
 
   onChange(e){
       this.setState({[e.target.name]: e.target.value});
@@ -42,19 +49,19 @@ export default class Booking extends Component {
                 <input type="text" placeholder="Full Name" name="bookersName" value = {this.state.bookersName}
                 onChange = {this.onChange}/>
                 </label>
-                <label>
-                Select Service:
-                <select name="service" value = {this.state.service}
-                onChange = {this.onChange}>
+
+                <label>Select Service: </label>
+                <select name="service"
+                onChange = {this.handleDropdownChange}>
                  
                   <option value="service 1">Service 1</option>
                   <option value="service 2">Service 2</option>
                   <option value="service 3">Service 3</option>
                   <option value="service 4">Service 4</option>
               </select>
-            </label>
-            <label>
-              Preferred Staff:
+            
+
+            <label> Preferred Staff: </label>
                 <select name="workerName" value = {this.state.workerName}
                 onChange = {this.onChange}>
         
@@ -62,7 +69,7 @@ export default class Booking extends Component {
                   <option value="angelique">Angelique</option>
                   <option value="daniel">Daniel</option>
               </select>
-            </label>
+            
             <div>
               <label>Select Date & Time: </label>
               <input type="datetime-local" name="bookingDate" value = {this.state.bookingDate}
