@@ -13,10 +13,10 @@ export default class Navbar extends Component {
             <nav className="main-nav">
                <ul>
                     <li>
-                    <Link to="/schedule">Add Person</Link>
+                    <Link to="/schedule">Schedule</Link>
                     </li>
                     <li>
-                    <Link to="/addPerson">Add Person</Link>
+                    <Link to="/addEmployee">Add Employee</Link>
                     </li>
                     <li>
                     <Link to="/about-us">About Us</Link>
