@@ -33,6 +33,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -62,6 +64,12 @@ public class EmployeeControllerTest {
     public void shouldAddNewEmployee() throws Exception {
         Employee employee = new Employee();
         employee.setName("Bob test");
+        employee.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        employee.setTFN("123456789");
+        employee.setEmail("bob@test.com");
+        employee.setGender("Male");
+        employee.setPhoneNumber("0499988844");
+        employee.setSuperNumber("044815002000020");
 
         String employee_json = OBJECT_MAPPER.writeValueAsString(employee);
         this.mockMvc.perform(post("/api/employee").contentType(MediaType.APPLICATION_JSON).content(employee_json)).andDo(MockMvcResultHandlers.print())
@@ -77,6 +85,12 @@ public class EmployeeControllerTest {
         Employee employee = new Employee();
         employee.setName("Bob test");
         employee.setId(1);
+        employee.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        employee.setTFN("123456789");
+        employee.setEmail("bob@test.com");
+        employee.setGender("Male");
+        employee.setPhoneNumber("0499988844");
+        employee.setSuperNumber("044815002000020");
 
         when(this.employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
 
@@ -90,6 +104,12 @@ public class EmployeeControllerTest {
         Employee employee = new Employee();
         employee.setName("Bob test");
         employee.setId(1);
+        employee.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        employee.setTFN("123456789");
+        employee.setEmail("bob@test.com");
+        employee.setGender("Male");
+        employee.setPhoneNumber("0499988844");
+        employee.setSuperNumber("044815002000020");
 
         when(this.employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
 

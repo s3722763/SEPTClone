@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,6 +39,12 @@ public class EmployeeServiceTest {
     public void testGettingById() {
         Employee bob = new Employee();
         bob.setName("Bob Test");
+        bob.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        bob.setTFN("123456789");
+        bob.setEmail("bob@test.com");
+        bob.setGender("Male");
+        bob.setPhoneNumber("0499988844");
+        bob.setSuperNumber("044815002000020");
         long id = (long)entityManager.persistAndGetId(bob);
         entityManager.flush();
 
@@ -51,6 +59,12 @@ public class EmployeeServiceTest {
     public void testGettingByName() {
         Employee bob = new Employee();
         bob.setName("Bob Test");
+        bob.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        bob.setTFN("123456789");
+        bob.setEmail("bob@test.com");
+        bob.setGender("Male");
+        bob.setPhoneNumber("0499988844");
+        bob.setSuperNumber("044815002000020");
         entityManager.persistAndFlush(bob);
 
         Iterable<Employee> resultItr = employeeService.findAllByName(bob.getName());
@@ -68,6 +82,12 @@ public class EmployeeServiceTest {
     public void testRemoveByIdExists() {
         Employee bob = new Employee();
         bob.setName("Bob Test");
+        bob.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        bob.setTFN("123456789");
+        bob.setEmail("bob@test.com");
+        bob.setGender("Male");
+        bob.setPhoneNumber("0499988844");
+        bob.setSuperNumber("044815002000020");
 
         long bob_id = (long)entityManager.persistAndGetId(bob);
         //Make sure that the employee was added to the database
@@ -83,10 +103,23 @@ public class EmployeeServiceTest {
         //Re add bob to the db
         Employee bob = new Employee();
         bob.setName("Bob Test");
+        bob.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        bob.setTFN("123456789");
+        bob.setEmail("bob@test.com");
+        bob.setGender("Male");
+        bob.setPhoneNumber("0499988844");
+        bob.setSuperNumber("044815002000020");
+
         long bob_id = (long)entityManager.persistAndGetId(bob);
 
         Employee steve = new Employee();
         steve.setName("Steve Test");
+        steve.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        steve.setTFN("123456789");
+        steve.setEmail("bob@test.com");
+        steve.setGender("Male");
+        steve.setPhoneNumber("0499988844");
+        steve.setSuperNumber("044815002000020");
         long steve_id = (long)entityManager.persistAndGetId(steve);
 
         assertThat(entityManager.find(Employee.class, steve_id)).isNotNull();
@@ -106,6 +139,13 @@ public class EmployeeServiceTest {
     public void testRemoveByIdDoesNotExist() {
         Employee bob = new Employee();
         bob.setName("Bob Test");
+        bob.setDateOfBirth(new Date(1985, Calendar.OCTOBER, 22));
+        bob.setTFN("123456789");
+        bob.setEmail("bob@test.com");
+        bob.setGender("Male");
+        bob.setPhoneNumber("0499988844");
+        bob.setSuperNumber("044815002000020");
+
         entityManager.persistAndFlush(bob);
 
         long id = (long)entityManager.persistAndGetId(bob);
