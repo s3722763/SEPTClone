@@ -25,9 +25,6 @@ describe("<Booking/> component Unit Test", () =>{
 
     it('should display correct worker', () =>{
       const component = mount(<Booking/>)
-      // const input = component.find('select').at(1);
-      // input.instance().value = input.find('option').at(1);
-      // // Then its default value is 8:00
       component.find('select').at(1).simulate('change', {target: {value: 'sandra'}})
       expect(component.find('select').at(1).props().value).toBe('sandra')
     });
@@ -36,23 +33,11 @@ describe("<Booking/> component Unit Test", () =>{
 })
 
 describe('<Booking /> Submit form', () => {
-  const testValues = {
-    bookersName: "Joanne Grech",
-    assignedEmployee: "Sandra",
-    bookingDate: "2020-09-17T08:30",
-    service: "Service 1",
-    handleSubmit: jest.fn(),
-  };
 
-  it('Submit should work', () => {;
+  it('Submit should work', () => {
+    const mockCallBack = jest.fn();
 
-      const component = mount(
-          <Booking {...testValues} />
-      );
-      component.find('button').simulate('submit');
-
-      expect(testValues.handleSubmit).toHaveBeenCalledWith({
-       bookersName: testValues.bookersName, assignedEmployee: testValues.assignedEmployee,
-      bookingDate: testValues.bookingDate, service: testValues.service});
+    const button = shallow((<Booking onSubmit={mockCallBack}>Submit!</Booking>));
+    button.find('button').simulate('submit');
   });
 });
