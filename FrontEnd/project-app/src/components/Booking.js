@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+// import EmployeeDataService from '../service/EmployeeDataService';
 
 export default class Booking extends Component {
     
@@ -7,15 +9,40 @@ export default class Booking extends Component {
 
     this.state= {
     bookersName: "",
-    workerName: "",
+    employees: [],
+    assignedEmployee: "",
     bookingDate: "",
     service: ""
   }; 
   this.onChange = this.onChange.bind(this);
   this.onSubmit = this.onSubmit.bind(this);
   this.handleDropdownChange = this.handleDropdownChange.bind(this);
-
+ 
   }
+
+componentDidMount() {
+ axios.get("http://localhost:8080/api/employee")
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      let employeesFromApi = data.map(employee => {
+        return { value: employee, display: employee };
+      });
+      this.setState({
+        employees: [
+          {
+            value: "",
+            display:
+              "(Select your preferred staff)"
+          }
+        ].concat(employeesFromApi)
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 
 
   handleDropdownChange(e) {
@@ -31,7 +58,7 @@ export default class Booking extends Component {
       const newBooking = {
         
         bookersName: this.state.bookersName,
-        workerName: this.state.workerName,
+        assignedEmployee: this.state.assignedEmployee,
         bookingDate: this.state.bookingDate,
         service: this.state.service 
       }
@@ -62,12 +89,25 @@ export default class Booking extends Component {
             
 
             <label> Preferred Staff: </label>
-                <select name="workerName" value = {this.state.workerName}
-                onChange = {this.onChange}>
-        
-                  <option value="sandra">Sandra</option>
-                  <option value="angelique">Angelique</option>
-                  <option value="daniel">Daniel</option>
+                <select value={this.state.assignedEmployee}
+                onChange={e =>
+                  this.setState({
+                    assignedEmployee: e.target.value,
+                    validationError:
+                      e.target.value === ""
+                        ? "You must select your preferred staff"
+                        : ""
+                  })
+                }
+              >
+                {this.state.employees.map(employee => (
+                  <option
+                    key={employee.value}
+                    value={employee.value}
+                  >
+                    {employee.display}
+                  </option>
+                ))}
               </select>
             
             <div>
