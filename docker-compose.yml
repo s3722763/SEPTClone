@@ -1,9 +1,21 @@
 version: '3'
 services:
     majorproject-rest-server:
+        image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/backend
         build:
             context: majorproject
             dockerfile: Dockerfile
         ports:
             - "8080:8080"
         restart: always
+
+    majorproject-frontend:
+        image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/frontend
+        build:
+            context: FrontEnd
+            dockerfile: Dockerfile
+        ports:
+            - "80:80"
+        restart: always
+        depends_on:
+            - majorproject-rest-server
