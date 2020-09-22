@@ -70,7 +70,7 @@ componentDidMount() {
         return (
           <div>
             <h2>New Booking Form</h2>
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} data-testid = "form">
                 <label>
                 Full Name:
                 <input type="text" placeholder="Full Name" name="bookersName" value = {this.state.bookersName}
@@ -115,7 +115,7 @@ componentDidMount() {
               <input type="datetime-local" name="bookingDate" value = {this.state.bookingDate}
               onChange = {this.onChange}></input>
             </div>
-                <input type="submit" value="Submit" />
+            <button type="submit">Submit</button>
         </form>
           </div>
         )

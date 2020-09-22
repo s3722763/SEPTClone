@@ -38,21 +38,21 @@ describe("<Booking/> component Unit Test", () =>{
 describe('<Booking /> Submit form', () => {
   const testValues = {
     bookersName: "Joanne Grech",
-    workerName: "Sandra",
+    assignedEmployee: "Sandra",
     bookingDate: "2020-09-17T08:30",
     service: "Service 1",
     handleSubmit: jest.fn(),
   };
 
-  it('Submit should work', () => {
+  it('Submit should work', () => {;
 
       const component = mount(
           <Booking {...testValues} />
       );
-      component.find('form').simulate('submit', { preventDefault () {} });
+      component.find('button').simulate('submit');
 
-      expect(testValues.handleSubmit).toBeCalledWith({
-       bookersName: testValues.bookersName, workerName: testValues.workerName,
+      expect(testValues.handleSubmit).toHaveBeenCalledWith({
+       bookersName: testValues.bookersName, assignedEmployee: testValues.assignedEmployee,
       bookingDate: testValues.bookingDate, service: testValues.service});
   });
 });
