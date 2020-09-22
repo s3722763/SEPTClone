@@ -1,0 +1,9 @@
+version: '3'
+services:
+    majorproject-rest-server:
+        build:
+            context: majorproject
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        restart: always
