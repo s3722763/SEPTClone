@@ -1,21 +1,24 @@
 version: '3'
 services:
     majorproject-rest-server:
-        image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/backend
+        image: backend
         build:
             context: majorproject
             dockerfile: Dockerfile
         ports:
             - "8080:8080"
         restart: always
+        environment:
+            MARIADB_HOST: ${MARIADB_HOST}
 
     majorproject-frontend:
-        image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/frontend
+        image: frontend
         build:
             context: FrontEnd
             dockerfile: Dockerfile
         ports:
-            - "80:80"
+            - "3000:3000"
         restart: always
+        stdin_open: true
         depends_on:
             - majorproject-rest-server
