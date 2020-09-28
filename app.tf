@@ -57,7 +57,7 @@ resource "aws_db_instance" "database" {
   allocated_storage      = 20
   instance_class         = "db.t2.micro"
   username               = "root"
-  password               = "root"
+  password               = var.db_password
   name                   = "project"
   storage_type           = "gp2"
   vpc_security_group_ids = [aws_security_group.database_sg.id]
