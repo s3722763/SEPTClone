@@ -64,4 +64,5 @@ resource "aws_db_instance" "database" {
   publicly_accessible    = false
   db_subnet_group_name   = aws_db_subnet_group.db_subnet_group.name
   port                   = 3306
+  skip_final_snapshot = true
 }
