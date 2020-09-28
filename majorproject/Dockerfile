@@ -8,4 +8,4 @@ WORKDIR /app
 COPY --from=MAVEN_BUILD build/target/majorproject-0.0.1-SNAPSHOT.jar /app/
 EXPOSE 8080
 EXPOSE 3306
-ENTRYPOINT ["java", "-jar", "-Dspring.datasource.url=jdbc:mariadb://${MARIADB_HOST}:3306/project?createDatabaseIfNotExist=true", "majorproject-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.datasource.url=jdbc:mariadb://${MARIADB_HOST}:3306/project?createDatabaseIfNotExist=true -Dspring.datasource.password=${MARIADB_PASSWORD}", "majorproject-0.0.1-SNAPSHOT.jar"]
