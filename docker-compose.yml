@@ -10,6 +10,7 @@ services:
         restart: always
         environment:
             MARIADB_HOST: ${MARIADB_HOST}
+            MARIADB_PASSWORD: ${MARIADB_PASSWORD}
 
     majorproject-frontend:
         image: frontend
