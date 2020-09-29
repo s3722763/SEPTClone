@@ -1,5 +1,6 @@
 package com.rmit.majorproject.BackEnd.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rmit.majorproject.BackEnd.validators.DateConstraint;
 import org.springframework.core.annotation.AliasFor;
@@ -24,8 +25,8 @@ public class Employee {
     @DateConstraint
     private List<String> potentialRosterDays;
     @NotNull(message = "Date of birth cannot be blank")
-    @JsonFormat(pattern = "yyyy/MM/dd")
-    private Date dateOfBirth;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date dob;
     @NotBlank(message = "Gender must be specified")
     private String gender;
     @NotBlank(message = "Email cannot be blank")
@@ -33,9 +34,10 @@ public class Employee {
     private String email;
     @NotBlank(message = "Must include a phone number")
     @Pattern(regexp = "(04)?[0-9]{8}")
-    private String phoneNumber;
+    private String phone;
     @NotBlank(message = "Must include a TFN number")
-    private String TFN;
+    private String tfn;
+    @JsonAlias("super")
     @NotBlank(message = "Must include super number")
     private String superNumber;
 
@@ -74,11 +76,11 @@ public class Employee {
     }
 
     public Date getDateOfBirth() {
-        return dateOfBirth;
+        return dob;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDateOfBirth(Date dob) {
+        this.dob = dob;
     }
 
     public String getGender() {
@@ -97,20 +99,20 @@ public class Employee {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phone = phoneNumber;
     }
 
     public String getTFN() {
-        return TFN;
+        return tfn;
     }
 
-    public void setTFN(String TFN) {
-        this.TFN = TFN;
+    public void setTFN(String tfn) {
+        this.tfn = tfn;
     }
 
     public String getSuperNumber() {
