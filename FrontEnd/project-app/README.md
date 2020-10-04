@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Ant-design Installation
+
+In order to use antd. Installation is required. Type in terminal 
+
+`npm install antd@^3.26.13 -S` **or** `yarn add antd@^3.26.13 -S`   ***(Install other version of antd may be incompatible)***
+
+Other plugins 
+
+`npm install react-app-rewired customize-cra babel-plugin-import` **or** `yarn add react-app-rewired customize-cra babel-plugin-import`
+
+
+
