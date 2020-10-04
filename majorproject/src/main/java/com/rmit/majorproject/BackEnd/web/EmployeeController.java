@@ -33,6 +33,17 @@ public class EmployeeController {
         }
     }
 
+    @PutMapping("")
+    public ResponseEntity<?> updateEmployee(@Valid @RequestBody Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
+            return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
+        }
+    	
+        employeeService.edit(employee);
+    	
+        return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+    }
+    
     @PostMapping("")
     public ResponseEntity<?> addEmployee(@Valid @RequestBody Employee employee, BindingResult result) {
         if (result.hasErrors()) {

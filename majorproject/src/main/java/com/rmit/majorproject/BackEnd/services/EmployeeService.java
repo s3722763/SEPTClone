@@ -29,6 +29,10 @@ public class EmployeeService {
     public Optional<Employee> getEmployeeById(long id) {
         return employeeRepository.findById(id);
     }
+    
+    public void edit(Employee employee) {
+    	employeeRepository.save(employee);
+    }
 
     public boolean removeEmployee(Long id) {
         Optional<Employee> employeeOptional = this.employeeRepository.findById(id);
