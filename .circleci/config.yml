@@ -73,11 +73,13 @@ jobs:
             sudo pip3 install --upgrade awscli
       - run:
           name: Build image
-          command: cd ~/majorproject;|
+          command: |
+            cd ~/majorproject;
             docker-compose build
       - run:
           name: Push image
-          command: cd ~/majorproject;|
+          command: |
+            cd ~/majorproject;
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 145555723369.dkr.ecr.us-east-1.amazonaws.com
             docker-compose push
  
