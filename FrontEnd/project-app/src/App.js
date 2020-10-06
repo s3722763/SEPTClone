@@ -7,7 +7,7 @@ import Login from './pages/Login'
 import Booking from './components/Booking'
 import AboutUs from './pages/AboutUs'
 import AddPerson from './components/AddEmployee';
-import RosterSchedule from './components/RosterSchedule';
+import Schedule from './components/Schedule';
 import { Route, Switch } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "./store";
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/booking" component={Booking} />
           <Route exact path="/about-us" component={AboutUs} />
           <Route exact path="/addEmployee" component={AddPerson} />
-          <Route exact path="/schedule" component={RosterSchedule} />
+          <Route exact path="/schedule" component={Schedule} />
           <Route exact path="/delEmployee" component={DelPerson} />
           <Route component={Error} />
         </Switch>
