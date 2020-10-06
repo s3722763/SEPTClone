@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Card, Table, Modal, Button, message, Select, Form } from 'antd'
-import EmployeeForm from './Employee-form'
+import { Card, Table, Modal, Button, message, Select, Form, Input } from 'antd'
+import EmployeeForm from './Employee-form.js'
 import 'antd/dist/antd.css'
+
+const Option = Select.Option
 
 export default class DelPerson extends Component {
 
@@ -13,12 +15,20 @@ export default class DelPerson extends Component {
                 dataIndex: 'name'
             },
             {
+                title: "DOB",
+                dataIndex: 'dateOfBirth'
+            },
+            {
                 title: "Email",
                 dataIndex: 'email'
             },
             {
                 title: "Gender",
                 dataIndex: 'gender'
+            },
+            {
+                title: "Phone Number",
+                dataIndex: 'phoneNumber'
             },
             {
                 title: "Process",
@@ -37,7 +47,9 @@ export default class DelPerson extends Component {
         this.state = {
             visible: false,
             employeeList: [],
-            isShow: false
+            isShow: false,
+            searchType: 'name',
+            searchInput: ''
 
         };
     }
@@ -104,6 +116,18 @@ export default class DelPerson extends Component {
 
     }
 
+    getEmployeeList = async () => {
+        const searchInput = this.state.searchInput;
+        const searchType = this.state.searchType;
+        const result = await axios.get("http://localhost:8080/api/employee?" + `${searchType}` + '=' + `${searchInput}`)
+        if (result.status == 200) {
+            const searchEmployeeList = result.data
+            this.setState({
+                employeeList: searchEmployeeList
+            })
+        }
+    }
+
     componentDidMount() {
         this.initColumn();
         axios.get("http://localhost:8080/api/employee")
@@ -117,11 +141,26 @@ export default class DelPerson extends Component {
     }
 
     render() {
-        const { isShow } = this.state
+        const { isShow, searchType, searchInput } = this.state
         const employee = this.employee || {}
 
+        const searchBar = (
+            <span>
+                <Select value={searchType} style={{ width: 200 }} onChange={value => this.setState({ searchType: value })}>
+                    <Option value='name'>Search By name</Option>
+                    <Option value='email'>Search By email</Option>
+                    <Option value='gender'>Search By gender</Option>
+                    <Option value='phoneNumber'>Search By phone number</Option>
+                </Select>
+                <Input placeholder='Relevant information' style={{ width: 250 }} value={searchInput} onChange={event => this.setState({ searchInput: event.target.value })} />
+                <Button type='primary' onClick={() => this.getEmployeeList()}>Search</Button>
+                <Button type='primary' onClick={() => this.componentDidMount()}>Reset</Button>
+            </span>
+        );
+
         return (
-            <Card >
+            <Card title={searchBar} extra={<a href="#">More</a>}>
+
                 <Table bordered columns={this.columns} rowKey='id' dataSource={this.state.employeeList} rowSelection={{ type: 'radio' }} onRow={this.onRow} />
 
                 <Modal
@@ -136,7 +175,7 @@ export default class DelPerson extends Component {
                     />
                 </Modal>
 
-            </Card>
+            </Card >
 
         )
     }

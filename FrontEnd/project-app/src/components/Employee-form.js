@@ -29,6 +29,9 @@ class EmployeeForm extends Component {
             },
         };
 
+        var dobInput = employee.dateOfBirth;
+        var dobOutput = dobInput.replace(/(\d{4})\/(\d\d)\/(\d\d)/, "$1-$2-$3");
+
         return (
 
             <Form {...formItemLayout}>
@@ -44,9 +47,10 @@ class EmployeeForm extends Component {
                 <Item label='DOB'>
                     {
                         getFieldDecorator('dateOfBirth', {
-                            initialValue: ''
+                            initialValue: dobOutput
                         })(
                             <Input type="date" style={{ width: '100%' }} required />
+
                         )
                     }
                 </Item>
