@@ -12,7 +12,7 @@ jobs:
       - checkout
 
       - restore_cache:
-        key: sept-fri-10-30-2-{{ checksum "~/majorproject/FrontEnd/project-app/package.json" }}
+          key: sept-fri-10-30-2-{{ checksum "~/majorproject/FrontEnd/project-app/package.json" }}
 
       - run:
           name: Install npm dependencies
