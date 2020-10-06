@@ -24,8 +24,6 @@ jobs:
     working_directory: ~/majorproject
     docker:
       - image: circleci/openjdk:8-jdk-stretch
-    environment:
-      FULL_IMAGE_NAME: 145555723369.dkr.ecr.us-east-1.amazonaws.com/project:latest
     steps:
       - checkout
       - setup_remote_docker
@@ -49,6 +47,12 @@ jobs:
           path: ~/majorproject/majorproject/target/majorproject-0.0.1-SNAPSHOT.jar;
 
   upload_container:
+    - working_directory: ~/majorproject
+    - docker:
+      - image: circleci/openjdk:8-jdk-stretch
+    environment:
+      FULL_IMAGE_NAME: 145555723369.dkr.ecr.us-east-1.amazonaws.com/project:latests
+    steps:
       - run:
           name: Install dependencies for AWS
           command: |
