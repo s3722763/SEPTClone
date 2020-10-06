@@ -62,6 +62,7 @@ jobs:
     environment:
       FULL_IMAGE_NAME: 145555723369.dkr.ecr.us-east-1.amazonaws.com/project:latests
     steps:
+      - checkout
       - setup_remote_docker
 
       - run:
@@ -74,11 +75,14 @@ jobs:
       - run:
           name: Build image
           command: |
-            cd ~/majorproject;docker-compose build
+            cd ~/majorproject;
+            docker-compose build
       - run:
           name: Push image
           command: |
-            cd ~/majorproject;aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 145555723369.dkr.ecr.us-east-1.amazonaws.com;docker-compose push
+            cd ~/majorproject;
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 145555723369.dkr.ecr.us-east-1.amazonaws.com;
+            docker-compose push
  
 workflows:
  build-deploy-qa:
