@@ -178,7 +178,7 @@ textarea {
   font-size: medium;
 }
 
-input[type=text], input[type=date] {
+input[type=text], input[type=date], input[type=password], input[type=Email] {
   width: 40%;
   padding: 12px;
   border: 1px solid #ccc;
