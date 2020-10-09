@@ -6,7 +6,7 @@ COPY project-app/public /build/public
 
 WORKDIR /build/
 
-RUN npm install
+RUN npm install --production
 
 EXPOSE 3000
 ENTRYPOINT ["npm", "start"]
