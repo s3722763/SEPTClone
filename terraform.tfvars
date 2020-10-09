@@ -1,4 +1,0 @@
-public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDknw+5yxavy8AiGQ/zBIYqW6QDNNyfaZWgDLDx0E84gDo9aeg0ZD58i1ckE9LpdtaWGI4v8FqURxM8K7MGoqfCDfs9SxiH3XK5/hmMERlkxTR6jdwMhBdnquYSrl9ISGCj4rjQiaaehOmWdlwnyqY/iXM6Tkti0NZ8kVExsWO8n+9JAXFyjg8z0tw+56DBE9csivW/x4rma4KJjQRsfX+o0J+PllMsUX2yxtrbgmSgTZW8x3J+sL44h/7pya/yQauHcEWjI9JRInsvs0rmUsWGlhXXnKX5gxM/alPpongdvE/fAGQVvbYwqtdwFgzxoxMDnASIOXgg/b0dqee+9e/h daniel@Polonium"
-# Alpine
-ami_id     = "ami-051581dfc1d093c06"
-db_password = "rootroot"
