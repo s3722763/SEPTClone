@@ -6,6 +6,7 @@
 * Marcelin, Angelique (s3602636)
 * Oommen, Sandra (s3794692)
 * Miskimmin, Daniel (s3722763)
+* Wang, Kejie (s3716098)
 
 ## Records
 
