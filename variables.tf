@@ -2,10 +2,14 @@ variable "public_key" {
   type = string
 }
 
-variable "ami_id" {
+variable "db_password" {
   type = string
 }
 
-variable "db_password" {
+variable "vpc_id" {
+  type = string
+}
+
+variable "subnet_id" {
   type = string
 }
