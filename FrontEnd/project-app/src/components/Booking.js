@@ -23,8 +23,10 @@ export default class Booking extends Component {
 componentDidMount() {
  axios.get("http://localhost:8080/api/employee")
     .then(response => {
-      return response.json();
+      console.log("Making request");
+      return response.json;
     })
+    .then(console.log("Made request"))
     .then(data => {
       let employeesFromApi = data.map(employee => {
         return { value: employee, display: employee };
