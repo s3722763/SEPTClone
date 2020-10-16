@@ -35,8 +35,8 @@ public class EmployeeService {
         return employeeRepository.findByGender(gender);
      }
     
-    public Iterable<Employee> findByPhoneNumber(String phoneNumber) {
-        return employeeRepository.findByPhoneNumber(phoneNumber);
+    public Iterable<Employee> findByPhoneNumber(int phoneNumber) {
+        return employeeRepository.findByPhone(phoneNumber);
      }
 
     public Optional<Employee> getEmployeeById(long id) {

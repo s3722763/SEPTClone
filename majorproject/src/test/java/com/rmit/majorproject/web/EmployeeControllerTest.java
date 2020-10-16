@@ -68,7 +68,7 @@ public class EmployeeControllerTest {
         employee.setTFN("123456789");
         employee.setEmail("bob@test.com");
         employee.setGender("Male");
-        employee.setPhoneNumber("0499988844");
+        employee.setPhone("0499988844");
         employee.setSuperNumber("044815002000020");
 
         String employee_json = OBJECT_MAPPER.writeValueAsString(employee);
@@ -89,7 +89,7 @@ public class EmployeeControllerTest {
         employee.setTFN("123456789");
         employee.setEmail("bob@test.com");
         employee.setGender("Male");
-        employee.setPhoneNumber("0499988844");
+        employee.setPhone("0499988844");
         employee.setSuperNumber("044815002000020");
 
         when(this.employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
@@ -108,7 +108,7 @@ public class EmployeeControllerTest {
         employee.setTFN("123456789");
         employee.setEmail("bob@test.com");
         employee.setGender("Male");
-        employee.setPhoneNumber("0499988844");
+        employee.setPhone("0499988844");
         employee.setSuperNumber("044815002000020");
 
         when(this.employeeRepository.findById(1L)).thenReturn(Optional.of(employee));

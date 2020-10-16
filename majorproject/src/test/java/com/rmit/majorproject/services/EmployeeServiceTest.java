@@ -43,7 +43,7 @@ public class EmployeeServiceTest {
         bob.setTFN("123456789");
         bob.setEmail("bob@test.com");
         bob.setGender("Male");
-        bob.setPhoneNumber("0499988844");
+        bob.setPhone("0499988844");
         bob.setSuperNumber("044815002000020");
         long id = (long)entityManager.persistAndGetId(bob);
         entityManager.flush();
@@ -63,7 +63,7 @@ public class EmployeeServiceTest {
         bob.setTFN("123456789");
         bob.setEmail("bob@test.com");
         bob.setGender("Male");
-        bob.setPhoneNumber("0499988844");
+        bob.setPhone("0499988844");
         bob.setSuperNumber("044815002000020");
         entityManager.persistAndFlush(bob);
 
@@ -86,7 +86,7 @@ public class EmployeeServiceTest {
         bob.setTFN("123456789");
         bob.setEmail("bob@test.com");
         bob.setGender("Male");
-        bob.setPhoneNumber("0499988844");
+        bob.setPhone("0499988844");
         bob.setSuperNumber("044815002000020");
 
         long bob_id = (long)entityManager.persistAndGetId(bob);
@@ -107,7 +107,7 @@ public class EmployeeServiceTest {
         bob.setTFN("123456789");
         bob.setEmail("bob@test.com");
         bob.setGender("Male");
-        bob.setPhoneNumber("0499988844");
+        bob.setPhone("0499988844");
         bob.setSuperNumber("044815002000020");
 
         long bob_id = (long)entityManager.persistAndGetId(bob);
@@ -118,7 +118,7 @@ public class EmployeeServiceTest {
         steve.setTFN("123456789");
         steve.setEmail("bob@test.com");
         steve.setGender("Male");
-        steve.setPhoneNumber("0499988844");
+        steve.setPhone("0499988844");
         steve.setSuperNumber("044815002000020");
         long steve_id = (long)entityManager.persistAndGetId(steve);
 
@@ -143,7 +143,7 @@ public class EmployeeServiceTest {
         bob.setTFN("123456789");
         bob.setEmail("bob@test.com");
         bob.setGender("Male");
-        bob.setPhoneNumber("0499988844");
+        bob.setPhone("0499988844");
         bob.setSuperNumber("044815002000020");
 
         entityManager.persistAndFlush(bob);
