@@ -1,6 +1,9 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {addEmployee} from '../actions/employeeAction'
 
-export default class AddPerson extends Component {
+class AddPerson extends Component {
 
   constructor(){
     super();
@@ -35,6 +38,7 @@ export default class AddPerson extends Component {
       }
 
     console.log(newEmployee);
+    this.props.addEmployee(newEmployee, this.props.history);
   }  
     render() {
         return (
@@ -95,3 +99,12 @@ export default class AddPerson extends Component {
         )
     }
 }
+
+AddPerson.propTypes = {
+  createProject: PropTypes.func.isRequired
+};
+
+export default connect (
+  null,
+  { addEmployee }
+)(AddPerson);

@@ -1,0 +1,2 @@
+MARIADB_HOST: "terraform-20201015230513156800000001.cnjs18dy7squ.us-east-1.rds.amazonaws.com"
+MARIADB_PASSWORD: ""

@@ -5,3 +5,11 @@ terraform.tfstate
 terraform.tfstate.backup
 tmp/
 .env
+Makefile
+terraform.tfvars
+modules/
+.idea
+infra/.terraform
+infra/modules
+infra/project-0.1.0.tgz
+infra/terraform.tfstate*

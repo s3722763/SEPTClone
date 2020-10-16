@@ -20,28 +20,25 @@ export default class Booking extends Component {
 
   }
 
-  componentDidMount() {
-    axios.get("http://localhost:8080/api/employee")
-      .then(response => {
-        //   // return response.json();
-        // })
-        // .then(data => {
-        let employeesFromApi = response.data.map(employee => {
-          return { value: employee, display: employee };
-        });
-        this.setState({
-          employees: [
-            {
-              value: "",
-              display:
-                "(Select your preferred staff)"
-            }
-          ].concat(employeesFromApi)
-        });
-        console.log(this.state.employees)
-      })
-      .catch(error => {
-        console.log(error);
+componentDidMount() {
+ axios.get("http://localhost:8080/api/employee")
+    .then(response => {
+      console.log("Making request");
+      return response.json;
+    })
+    .then(console.log("Made request"))
+    .then(data => {
+      let employeesFromApi = data.map(employee => {
+        return { value: employee, display: employee };
+      });
+      this.setState({
+        employees: [
+          {
+            value: "",
+            display:
+              "(Select your preferred staff)"
+          }
+        ].concat(employeesFromApi)
       });
   }
 

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "project"
+spec:
+  selector:
+    matchLabels:
+      app: "project"
+  replicas: 1
+  template:
+      metadata:
+        labels:
+          app: "project"
+      spec:
+        containers:
+          - image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/frontend
+            imagePullPolicy: Always
+            name: "project-frontend"
+            ports:
+              - containerPort: 3000
+
+          - image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/backend
+            imagePullPolicy: Always
+            name: "project-backend"
+            env:
+              - name: "MARIADB_HOST"
+                value: {{ .Values.MARIADB_HOST }}
+              - name: "MARIADB_PASSWORD"
+                value: {{ .Values.MARIADB_PASSWORD }}
+            ports:
+              - containerPort: 8080
