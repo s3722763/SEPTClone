@@ -40,8 +40,11 @@ componentDidMount() {
           }
         ].concat(employeesFromApi)
       });
-  }
-
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 
   handleDropdownChange(e) {
     this.setState({ service: e.target.value });
