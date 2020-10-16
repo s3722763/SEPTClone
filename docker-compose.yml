@@ -1,7 +1,7 @@
 version: '3'
 services:
     majorproject-rest-server:
-        image: backend
+        image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/backend
         build:
             context: majorproject
             dockerfile: Dockerfile
@@ -13,7 +13,7 @@ services:
             MARIADB_PASSWORD: ${MARIADB_PASSWORD}
 
     majorproject-frontend:
-        image: frontend
+        image: 145555723369.dkr.ecr.us-east-1.amazonaws.com/frontend
         build:
             context: FrontEnd
             dockerfile: Dockerfile
